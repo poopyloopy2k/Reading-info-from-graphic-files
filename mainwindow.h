@@ -11,6 +11,9 @@
 #include <QFileInfo>
 #include <QImage>
 #include <QSize>
+#include <QList>
+#include <QTableWidget>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,13 +29,28 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
+    void chooseAFolder();
+    void startToAnalize();
+    void prevPage();
+    void nextPage();
 
 private:
     Ui::MainWindow *ui;
     QString selectedFolder;
+    struct FileInfo
+    {
+        QString fileName;
+        QSize imageSize;
+        int dpiX;
+        int dpiY;
+        int depth;
+        QString compression;
+    };
+   void updateTable();
+    QList<FileInfo> fileInfoList;
+    int itemsPerPage;
+    int currentPage;
+    bool isAnalyzeDone = false;
 
 };
 #endif // MAINWINDOW_H

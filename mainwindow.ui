@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1288</width>
-    <height>732</height>
+    <width>1273</width>
+    <height>761</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -72,13 +72,74 @@
      <number>24</number>
     </property>
    </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>141</y>
+      <width>1201</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Имя файла</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Размер изображения (в пикселях)</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Разрешение (dot/inch)</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Глубина цвета</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Сжатие</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>670</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Назад</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nextButton">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>670</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вперед</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1288</width>
+     <width>1273</width>
      <height>22</height>
     </rect>
    </property>
