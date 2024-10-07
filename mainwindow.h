@@ -13,6 +13,7 @@
 #include <QSize>
 #include <QList>
 #include <QTableWidget>
+#include <exiv2/exiv2.hpp>
 
 
 QT_BEGIN_NAMESPACE

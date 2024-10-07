@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <exiv2/exiv2.hpp>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -74,6 +75,19 @@ void MainWindow::startToAnalize()
         int dpiX = image.dotsPerMeterX();
         int dpiY = image.dotsPerMeterY();
         QString compression = " ";
+        try {
+            std::unique_ptr<Exiv2::Image> exivImage = Exiv2::ImageFactory::open(filePath.toStdString());
+            exivImage->readMetadata();
+
+            // Извлекаем данные о сжатии
+            Exiv2::ExifData &exifData = exivImage->exifData();
+            if (exifData.findKey(Exiv2::ExifKey("Exif.Photo.Compression")) != exifData.end()) {
+                compression = QString::fromStdString(exifData["Exif.Photo.Compression"].toString());
+            }
+        } catch (Exiv2::Error &e) {
+            qDebug() << "Ошибка Exiv2:" << e.what();
+        }
+
         qDebug() << "имя файла" << fileName;
         qDebug() << "размер в пикселях" << imageSize;
         qDebug() << "глубина" << depth;
